@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'odania_ops'
+
+OdaniaOps::Cli::Application.start(ARGV)
