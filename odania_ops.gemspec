@@ -16,8 +16,9 @@ Gem::Specification.new do |gem|
 	gem.version       = OdaniaOps::VERSION
 	gem.license       = 'MIT'
 
-	gem.add_dependency 'thor'
+	gem.add_dependency 'activesupport'
+	gem.add_dependency 'deep_merge'
 	gem.add_dependency 'docker-api'
 	gem.add_dependency 'httparty'
-	gem.add_dependency 'deep_merge'
+	gem.add_dependency 'thor'
 end
