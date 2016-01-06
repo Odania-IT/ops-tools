@@ -5,6 +5,7 @@ require 'logger'
 require 'yaml'
 require 'deep_merge/rails_compat'
 require 'active_support/all'
+require 'docker-api'
 
 require_relative 'odania_ops/cli/config'
 require_relative 'odania_ops/cli/docker'

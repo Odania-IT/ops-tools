@@ -49,3 +49,14 @@ This will build and push to v10 and latest.
 #### Version numbers
 
 Version numbers are expected to be in tags like v1 (vNUMBER in general).
+
+### base_image_check
+
+This command checks all Dockerfiles under <folder> for new base images.
+
+The folder name has to be the name of the image. The image is looked up in the registry from the config.
+
+Example:
+```
+bundle exec ops docker base_image_check ~/workspace/docker
+```

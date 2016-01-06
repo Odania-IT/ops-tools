@@ -21,19 +21,18 @@ module OdaniaOps
 				def login
 					$logger.info "Loggin in to private registry #{registry_name}"
 					data = $config['docker']
-					puts data.inspect
 					OdaniaOps::Helper::Shell.execute("docker login --username=#{data['user']} --password=\"#{data['password']}\" --email=#{data['email']} #{registry_url}")
+				end
+
+				def registry_name
+					uri = URI.parse $config['docker']['url']
+					uri.host
 				end
 
 				private
 
 				def auth
 					{:username => $config['docker']['user'], :password => $config['docker']['password']}
-				end
-
-				def registry_name
-					uri = URI.parse $config['docker']['url']
-					uri.host
 				end
 
 				def registry_url
@@ -45,9 +44,6 @@ module OdaniaOps
 				def get(query_url)
 					$logger.debug "Query registry: #{registry_url}#{query_url}"
 					response = HTTParty.get("#{registry_url}#{query_url}", :basic_auth => auth)
-					puts response.inspect
-					puts response.code
-					puts response.parsed_response.inspect
 					return response.code, response.parsed_response
 				end
 			end
