@@ -17,7 +17,7 @@ $logger = Logger.new(STDOUT)
 $logger.level = Logger::INFO
 
 # Load Config
-OdaniaOps::Helper::Config.load_config(__FILE__)
+OdaniaOps::Helper::Config.load_config(File.dirname(__FILE__))
 
 module OdaniaOps
 	module Cli
