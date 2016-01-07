@@ -26,6 +26,8 @@ module OdaniaOps
 
 			desc 'base_image_check <folder>', 'Searches for all Dockerfiles under <folder> and looks for the base image'
 			def base_image_check(folder)
+				OdaniaOps::Helper::Docker.login
+
 				failed_images = []
 				Dir.glob("#{folder}/**/Dockerfile").each do |file|
 					result = check_latest_base_image file

@@ -60,3 +60,5 @@ Example:
 ```
 bundle exec ops docker base_image_check ~/workspace/docker
 ```
+
+* Important: For the detection to work you need to have the FROM in the first line followed by a line with MAINTAINER! *
