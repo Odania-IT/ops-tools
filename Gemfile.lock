@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    odania_ops (0.0.3)
+    odania_ops (0.0.4)
       activesupport
       deep_merge
       docker-api
