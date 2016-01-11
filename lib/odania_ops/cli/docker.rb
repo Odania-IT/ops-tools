@@ -14,7 +14,7 @@ module OdaniaOps
 				OdaniaOps::Helper::Shell.execute("docker pull #{base_image}")
 
 				$logger.info "Building #{image_name}"
-				OdaniaOps::Helper::Shell.execute("cd #{folder} && docker build -t #{image_name}:#{build_tag} .")
+				OdaniaOps::Helper::Shell.execute("cd #{folder} && docker build --no-cache -t #{image_name}:#{build_tag} .")
 
 				$logger.info "Tagging #{build_tag} as latest"
 				OdaniaOps::Helper::Docker.remote_tag "#{image_name}:#{build_tag}"
