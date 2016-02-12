@@ -10,6 +10,9 @@ module OdaniaOps
 						config_file = retrieve_config_folder folder
 					end
 
+					$config = {}
+					return unless File.exists? config_file
+
 					$logger.debug "Loading config file #{config_file}"
 					$config = YAML.load_file(config_file)
 					$logger.debug $config.inspect
@@ -29,7 +32,8 @@ module OdaniaOps
 						folder = next_folder
 					end
 
-					raise "No configuration found! Looking in #{start_folder} and above."
+					$logger.error "No configuration found! Looking in #{start_folder} and above."
+					''
 				end
 			end
 		end

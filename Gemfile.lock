@@ -6,17 +6,19 @@ PATH
       deep_merge
       docker-api
       httparty
+      sshkit
       thor
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.5)
+    activesupport (4.2.5.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    colorize (0.7.3)
     deep_merge (1.0.1)
     docker-api (1.24.1)
       excon (>= 0.38.0)
@@ -27,8 +29,15 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
     json (1.8.3)
-    minitest (5.8.3)
+    minitest (5.8.4)
     multi_xml (0.5.5)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.0.2)
+    sshkit (1.7.1)
+      colorize (>= 0.7.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     thor (0.19.1)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
@@ -39,3 +48,6 @@ PLATFORMS
 
 DEPENDENCIES
   odania_ops!
+
+BUNDLED WITH
+   1.10.6

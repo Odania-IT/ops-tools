@@ -6,9 +6,12 @@ require 'yaml'
 require 'deep_merge/rails_compat'
 require 'active_support/all'
 require 'docker-api'
+require 'sshkit'
+require 'sshkit/dsl'
 
 require_relative 'odania_ops/cli/config'
 require_relative 'odania_ops/cli/docker'
+require_relative 'odania_ops/cli/node'
 require_relative 'odania_ops/helper/config'
 require_relative 'odania_ops/helper/docker'
 require_relative 'odania_ops/helper/shell'
@@ -36,6 +39,9 @@ module OdaniaOps
 
 			desc 'config', 'Manage configuration'
 			subcommand 'config', Config
+
+			desc 'node', 'Execute commands on nodes'
+			subcommand 'node', Node
 		end
 	end
 end
