@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+
+# Config
+mysql_user = '<%= opts['user'] %>'
+mysql_pass = '<%= opts['password'] %>'
+mysql_host = '127.0.0.1'
+
+# Backup folder
+backup_dir = '/media/backup/<%= host %>/mysql'
+
+# Create folder if needed
+FileUtils.mkdir_p backup_dir unless File.directory? backup_dir
+
+# Backup MySql
+result = ` mysql -u #{mysql_user} -p#{mysql_pass} -h #{mysql_host} --silent -N -e 'show databases'`.split("\n")
+result.each do |db_name|
+	db_name = db_name.strip
+	next if %w(information_schema performance_schema).include? db_name
+
+	filename = "#{backup_dir}/#{db_name}.mysql.sql.gz"
+	puts "Backing up #{db_name} to #{filename}"
+	` mysqldump -u #{mysql_user} -p#{mysql_pass} -h #{mysql_host} -e --opt -c #{db_name} | gzip -c > #{filename}`
+end

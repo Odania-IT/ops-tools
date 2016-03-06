@@ -5,6 +5,7 @@ PATH
       activesupport
       deep_merge
       docker-api
+      erubis
       httparty
       sshkit
       thor
@@ -18,11 +19,12 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    colorize (0.7.3)
+    colorize (0.7.7)
     deep_merge (1.0.1)
     docker-api (1.24.1)
       excon (>= 0.38.0)
       json
+    erubis (2.7.0)
     excon (0.45.4)
     httparty (0.13.7)
       json (~> 1.8)
@@ -48,6 +50,3 @@ PLATFORMS
 
 DEPENDENCIES
   odania_ops!
-
-BUNDLED WITH
-   1.10.6
