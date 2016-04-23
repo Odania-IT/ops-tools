@@ -14,8 +14,9 @@ module OdaniaOps
 					OdaniaOps::Helper::Shell.execute("docker tag #{opts} #{image_name_and_tag} #{registry_name}/#{target_image_name_and_tag}")
 				end
 
-				def push(image_name)
-					OdaniaOps::Helper::Shell.execute("docker push #{registry_name}/#{image_name}")
+				def push(image_name, tag=nil)
+					tag = ":#{tag}" unless tag.nil? or tag.empty?
+					OdaniaOps::Helper::Shell.execute("docker push #{registry_name}/#{image_name}#{tag}")
 				end
 
 				def login

@@ -21,7 +21,8 @@ module OdaniaOps
 				OdaniaOps::Helper::Docker.remote_tag "#{image_name}:#{build_tag}", "#{image_name}:latest", true
 
 				$logger.info "Pushing #{build_tag}"
-				OdaniaOps::Helper::Docker.push image_name
+				OdaniaOps::Helper::Docker.push image_name, build_tag
+				OdaniaOps::Helper::Docker.push image_name, 'latest'
 			end
 
 			desc 'base_image_check <folder>', 'Searches for all Dockerfiles under <folder> and looks for the base image'
