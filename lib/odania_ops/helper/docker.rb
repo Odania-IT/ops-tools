@@ -8,10 +8,9 @@ module OdaniaOps
 					data['tags']
 				end
 
-				def remote_tag(image_name_and_tag, target_image_name_and_tag=nil, force=false)
+				def remote_tag(image_name_and_tag, target_image_name_and_tag=nil)
 					target_image_name_and_tag = image_name_and_tag if target_image_name_and_tag.nil?
-					opts = force ? '-f' : ''
-					OdaniaOps::Helper::Shell.execute("docker tag #{opts} #{image_name_and_tag} #{registry_name}/#{target_image_name_and_tag}")
+					OdaniaOps::Helper::Shell.execute("docker tag #{image_name_and_tag} #{registry_name}/#{target_image_name_and_tag}")
 				end
 
 				def push(image_name, tag=nil)

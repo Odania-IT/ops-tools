@@ -18,7 +18,7 @@ module OdaniaOps
 
 				$logger.info "Tagging #{build_tag} as latest"
 				OdaniaOps::Helper::Docker.remote_tag "#{image_name}:#{build_tag}"
-				OdaniaOps::Helper::Docker.remote_tag "#{image_name}:#{build_tag}", "#{image_name}:latest", true
+				OdaniaOps::Helper::Docker.remote_tag "#{image_name}:#{build_tag}", "#{image_name}:latest"
 
 				$logger.info "Pushing #{build_tag}"
 				OdaniaOps::Helper::Docker.push image_name, build_tag
