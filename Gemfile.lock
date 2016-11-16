@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    odania_ops (0.0.6)
+    odania_ops (0.0.8)
       activesupport
+      bigdecimal
       deep_merge
       docker-api
       erubis
@@ -13,31 +14,29 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.5.1)
+    activesupport (5.0.0.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
-      json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
-      thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    colorize (0.7.7)
-    deep_merge (1.0.1)
-    docker-api (1.24.1)
+    bigdecimal (1.2.8)
+    concurrent-ruby (1.0.2)
+    deep_merge (1.1.1)
+    docker-api (1.32.1)
       excon (>= 0.38.0)
       json
     erubis (2.7.0)
-    excon (0.45.4)
-    httparty (0.13.7)
-      json (~> 1.8)
+    excon (0.54.0)
+    httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
-    json (1.8.3)
-    minitest (5.8.4)
+    json (2.0.2)
+    minitest (5.9.1)
     multi_xml (0.5.5)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (3.0.2)
-    sshkit (1.7.1)
-      colorize (>= 0.7.0)
+    net-ssh (3.2.0)
+    sshkit (1.11.4)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     thor (0.19.1)
@@ -50,3 +49,6 @@ PLATFORMS
 
 DEPENDENCIES
   odania_ops!
+
+BUNDLED WITH
+   1.13.6
