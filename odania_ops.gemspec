@@ -23,4 +23,5 @@ Gem::Specification.new do |gem|
 	gem.add_dependency 'httparty'
 	gem.add_dependency 'thor'
 	gem.add_dependency 'sshkit'
+	gem.add_dependency 'bigdecimal'
 end
