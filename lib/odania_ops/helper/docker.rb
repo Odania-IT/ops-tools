@@ -21,7 +21,7 @@ module OdaniaOps
 				def login
 					$logger.info "Loggin in to private registry #{registry_name}"
 					data = $config['docker']
-					OdaniaOps::Helper::Shell.execute("docker login --username=#{data['user']} --password=\"#{data['password']}\" --email=#{data['email']} #{registry_url}")
+					OdaniaOps::Helper::Shell.execute("docker login --username=#{data['user']} --password=\"#{data['password']}\" #{registry_url}")
 				end
 
 				def registry_name
