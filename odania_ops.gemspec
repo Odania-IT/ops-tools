@@ -24,4 +24,5 @@ Gem::Specification.new do |gem|
 	gem.add_dependency 'thor'
 	gem.add_dependency 'sshkit'
 	gem.add_dependency 'bigdecimal'
+	gem.add_dependency 'aws-sdk', '~> 2'
 end

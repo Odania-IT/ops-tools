@@ -3,6 +3,8 @@ module OdaniaOps
 		module Docker
 			class << self
 				def image_tags(image)
+					return OdaniaOps::Helper::Aws.tags(image) if $config['docker']['use_aws']
+
 					code, data = get("/#{image}/tags/list")
 					return [] unless 200.eql? code
 					data['tags']
