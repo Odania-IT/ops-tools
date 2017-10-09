@@ -24,8 +24,15 @@ module OdaniaOps
 					data = $config['docker']
 					return if data['no_login']
 
+					if $config['docker']['use_aws']
+						username, password = OdaniaOps::Helper::Aws.docker_login
+					else
+						username = data['user']
+						password = data['password']
+					end
+
 					$logger.info "Login in to private registry #{registry_name}"
-					OdaniaOps::Helper::Shell.execute("docker login --username=#{data['user']} --password=\"#{data['password']}\" #{registry_url}")
+					OdaniaOps::Helper::Shell.execute("docker login --username=#{username} --password=\"#{password}\" #{registry_url}")
 				end
 
 				def registry_name

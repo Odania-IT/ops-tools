@@ -1,4 +1,5 @@
 require 'aws-sdk'
+require 'base64'
 
 module OdaniaOps
 	module Helper
@@ -27,6 +28,18 @@ module OdaniaOps
 					end
 
 					result.uniq
+				end
+
+				def docker_login
+					client = ::Aws::ECR::Client.new(
+							{
+									region: $config['aws']['region'],
+									credentials: ::Aws::Credentials.new($config['aws']['access_key_id'], $config['aws']['secret_access_key'])
+							}
+					)
+
+					response = client.get_authorization_token
+					return Base64.decode64(response.authorization_data[0].authorization_token).split(':')
 				end
 			end
 		end
