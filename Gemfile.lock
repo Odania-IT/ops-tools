@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    odania_ops (0.0.12)
+    odania_ops (0.0.13)
       activesupport
       aws-sdk (~> 2)
       bigdecimal
