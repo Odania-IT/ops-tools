@@ -44,6 +44,22 @@ module OdaniaOps
 				end
 			end
 
+			desc 'push <image_name> <local_image_tag>', 'Pushes the image'
+			def push(image_name, local_image_tag)
+				OdaniaOps::Helper::Docker.login
+
+				build_number = get_highest_build_number(image_name) + 1
+				build_tag = "v#{build_number}"
+
+				$logger.info "Tagging #{build_tag} as latest"
+				OdaniaOps::Helper::Docker.remote_tag "#{image_name}:#{local_image_tag}", "#{image_name}:#{build_tag}"
+				OdaniaOps::Helper::Docker.remote_tag "#{image_name}:#{local_image_tag}", "#{image_name}:latest"
+
+				$logger.info "Pushing #{build_tag}"
+				OdaniaOps::Helper::Docker.push image_name, build_tag
+				OdaniaOps::Helper::Docker.push image_name, 'latest'
+			end
+
 			private
 
 			def get_highest_build_number(image_name)
